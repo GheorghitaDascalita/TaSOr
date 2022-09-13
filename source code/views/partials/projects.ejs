@@ -1,0 +1,14 @@
+
+<button id="new-project">New Project</button>
+<ul id="project-container">
+    <% for (var i in data.proj ) {%>
+        <a href="./board?id=<%=data.proj[i]._id%>">
+            <li class="project">
+                <h3> <%= data.proj[i].title %> </h3>
+                <p class="descriere"> <%= data.proj[i].description %> </p>
+                <p class="deadline"> <%= data.proj[i].deadline %>  </p>
+            </li>
+        </a>  
+    <%}%> 
+    
+</ul>

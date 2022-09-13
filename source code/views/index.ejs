@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>tasor</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600" rel="stylesheet">
+	<link rel="stylesheet" href="static/Style.css" type="text/css">
+</head>
+
+<body>
+	<div id="nav-container">
+		<p id="logo">tasor</p>
+		<div id="nav">
+			<a href="/projects" onclick="onNavigate('/projects'); return false">Projects</a>
+  			<a href="/logout" onclick="onLogout(); return false">Logout</a>
+			<a href="/login" onclick="onNavigate('/login'); return false;">Login</a>
+			<a href="/register" onclick="onNavigate('/register'); return false">Register</a>
+		
+		</div>
+	</div>
+	<div id="target">
+		<% if(data.page == 'projects'){ %> <%  include /partials/projects %> <% } %>
+        <% if(data.page == 'boards'){ %> <%  include /partials/boards %> <% } %>
+        <% if(data.page == 'register'){ %> <%  include /partials/register %> <% } %>
+		<% if(data.page == 'login'){ %> <%  include /partials/login %> <% } %>
+		
+	</div>
+
+    
+  
+
+    <!-- <script type="module" src="static/config.js"></script> -->
+    <% if(data.page == 'boards'){ %> <script type ="text/javascript" src="/static/boardjs.js" ></script> <% } %>
+    <% if(data.page == 'projects'){ %> <script type ="text/javascript" src="/static/add_project.js" ></script> <% } %>
+	<script type="JavaScript/text" src="/static/javascript.js"></script>
+	<script type="text/javascript" src ="/static/notification.js"></script>
+</body>
+</html>

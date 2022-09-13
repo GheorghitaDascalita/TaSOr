@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Tasor Description</title>
+    <link rel="stylesheet" href="css/scholarly.min.css">
+    <script src="js/scholarly.min.js"></script>
+  </head>
+  <body prefix="schema: http://schema.org">
+    <header>
+      <div class="banner">
+        <img src="scholarly-html.svg" width="227" height="50" alt="Scholarly HTML logo">
+        <div class="status">Info UAIC 2019</div>
+      </div>
+      <h1>TaSOr</h1>
+    </header>
+    <div role="contentinfo">
+      <dl>
+        <dt>Autori</dt>
+        <dd>
+          Alexandra Birzu
+        </dd>
+        <dd>
+          Dascalita Gheorghita
+        </dd>
+        <dd>
+          Popa George
+        </dd>
+    </div>
+
+
+    <section id="Abstract" role="doc-abstract">
+      <h2>Abstract</h2>
+      <p>
+        Aplicatia TaSOr (Task Smart Organizer) va avea ca scop creare unui organizator de proiecte , in care fiecare
+		user va putea face parte dintr-o echipa. Fiecare user va putea fi capabil sa creeze tichete
+		sa le asigneze un deadline, va putea modifica statusul tichetului ( Grooming , In Progress , Done ).
+		Orice utilizator va putea modifica statusul oricarui tichet si schimba descrierea tichetului.
+		Ca sursa de inspiratie vom folosi Trello.
+      </p>
+    </section>
+
+	<section id="File Stock">
+      <h2>Management System For Source Code</h2>
+		<p>
+			Ca sistem de stocare si management a codului sursa vom folosi GitHub.
+		</p>
+    </section>
+
+    <section id="Architecture">
+      <h2>Architecture</h2>
+	  <img src="tasor_architecture.png" style="height:700px"/>
+		<section id="Single Page App">
+		
+        <p>
+			Aplicatia va folosi arhitectura Single Page Application.
+		 </p>
+      </section>
+	  
+
+
+	
+      <section id="Main Page">
+        <h3>Main Page </h3>
+        <p>
+          Pagina aceasta este intermediul aplicatiei prin care se pot accesa toate functionalitatile acesteia.
+		  Continutul paginii va fi modificat in functie de parametrii preluati din url astfel, vom incerca sa 
+		  mapam fiecare fisier cu continut JS si HTML pe un model Dictionary ( Key: 'url params' , value: 'html and js content')
+		  Vom folosi History API pentru simularea navigarii intre pagini.
+     </p>
+     <img src="MVC.png" style="height:700px"/>
+      </section>
+
+      <section id="Projects">
+        <h3>Projects</h3>
+        <p>
+          Projects sunt componentele ce vor fi afisate pe prima pagina imediat dupa logare ce vor reprezenta poriectele din care face
+		  parte studentul care s-a conectat. In momentul in care utilizator va da click pe un proiect acesta va deschide un board.
+        </p>
+      </section>
+
+      <section id="Tickets">
+        <h3>Tickets</h3>
+        <p>
+			Ticketele vor fi reprezentarile grafice a taskurilor pe care un user le are asignate in cadrul unui proiect(board). Ele vor 
+			fi afisate pe boardul propriu zis si vor contine date legate de: deadline-ul ticketului , user-ul care se ocupa de tichet
+			descririea ticketului, statusul si categoria din care face parte ticketul ( backend, frontend , serverside etc..) in care se afla acesta.
+        </p>
+      </section>
+
+      <section id="Teams">
+        <h3>Categories</h3>
+        <p>
+          Un grup de useri ce se vor ocupa de un anumit proiect se va numi Category ( useri vor avea acces la componenta echipei din care fac parte)
+        </p>
+      </section>
+	  
+	  <section id="User Guide">
+        <h3>User Guide</h3>
+        <p>
+          Ca prim pas utilizatorul va trebui sa isi creeze un account, dupa care cu credentialele alese se va loga in pagina principala a aplicatiei.
+		  Utilizatorul avand account-ul creat va putea primi cereri de intrare in proiecte. Pe pagina principala a aplicatiei acesta va avea acces la toate
+		  proiectele la care este inscris, va putea accesa statistici in legatura cu activitatea sa. In momentul in care un utilizator va accesa un proiect
+		  i se afisa board-ul proiectului in care va avea drepturi de a crea tickete , de a primi tickete create de alt user, de a schimba statusul ticketelor
+		  care i-au fost asignate , de a schimba cerintele tichetelor
+		  
+        </p>
+      </section>
+	  
+	  <section id="Database">
+        <h3>Database</h3>
+        <p>
+			Ca baza de date vom utiliza MongoDB(baza de date non-relationala) ce va fi structurata pe 7 tabele.
+			Am ales MongoDB deoarece este foarte usor de gasit documentatie pentru acesta si este mai usor de folosit
+			deoarece este o baza de date non-relationala, iar datele vin in format JSON fiind mult mai usor de citit si de prelucrat.
+			Deoarece vom folosi express ca si framework este posibil sa folosim si mongoose(ORM) pentru prelucrarea datelor.
+        </p>
+        <img src="Tasor_ER_DataBase.jpg" style="height:700px"/>
+      </section>
+      
+    <section id="Bibliografie">
+      <h3>Bibliografy:</h3>
+      <p>
+        https://w3c.github.io/scholarly-html/ <br>
+        https://github.com/w3c/scholarly-html
+      </p>
+    </section>
+  </body>
+</html>

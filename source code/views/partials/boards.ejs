@@ -1,0 +1,57 @@
+<button id='addCategory'>Add Category</button>
+<button id='activities'> History </button>
+<button id='addUser'>Add user</button>
+<section>
+    <main>
+        <article id="lists">
+                <% for (var i in data.cat ) {%>
+                        <div class="list">
+                            <label for="<%= data.cat[i]._id%>"><%= data.cat[i].name%></label>
+                            <ul id="<%= data.cat[i]._id%>">
+                                    <% for (var j in data.cat[i].id_tickets) {%>
+                                        <li <% if(data.cat[i].id_tickets[j].status){%> style="background-color: rgba(100, 200, 100, 0.5);" <%}%> class="task" draggable="true" id="<%=data.cat[i].id_tickets[j]._id%>"><input type="checkbox" 
+                                                <% if(data.cat[i].id_tickets[j].status){%> checked <%}%>
+                                            ><strong <% if(data.cat[i].id_tickets[j].status){%> style="opacity:0.2" <%}%>>
+                                                <span><%= data.cat[i].id_tickets[j].name %></span>
+                                            </strong><span <% if(data.cat[i].id_tickets[j].status){%> style="opacity:0.3" <%}%> class="drop">×</span>
+                                        </li>
+                                    <%}%>
+                            </ul><button class="addTask">+</button>
+                        </div>
+                <%}%>
+        </article>
+    </main>
+    <div id='newCatModal' class="modal">
+        <div class="modalContent">
+            <label id='closeCat' class='close'>&times;</label>
+            <input class='newCategory' placeholder="Category name">
+        </div>
+    </div>
+    <div id='newTaskModal' class="modal">
+        <div class="modalContent">
+            <label id='closeTask' class='close'>&times;</label>
+            <div class='newTask'>
+                <label for="title">Title: </label><input id="title" placeholder="task's title">
+                <label for="description">Description: </label><input id="description" placeholder="task's description">
+                <label for="start_time">Start time: </label><input id="start_time" type="date">
+                <label for="deadline">Deadline: </label><input id="deadline" type="date">
+                <label for="url_proof">Proof: </label><input id="url_proof" placeholder="proof">
+                <button>Add ticket</button>
+            </div>
+        </div>
+    </div>
+    <div id='newActModal' class="modal">
+        <div class="modalContent">
+            <label id='closeAct' class='close'>&times;</label>
+            <div id="activities-container">
+            </div>
+        </div>
+    </div>
+    <div id='newUserModal' class="modal">
+        <div class="modalContent">
+            <label id='closeUser' class='close'>&times;</label>
+            <input id='addUserToProj' class='newUser' placeholder="user">
+        </div>
+    </div>
+
+</section>
